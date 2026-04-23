@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analytics Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>Connect Your Datasets</h1>
+      <p>Upload all three CSV files to enable the master analytics view.</p>
+
+      <div class="upload-grid">
+        <div class="upload-card">
+          <h3>1. Orders File</h3>
+          <input type="file" id="ordersFile" accept=".csv" />
+        </div>
+        <div class="upload-card">
+          <h3>2. Order Items File</h3>
+          <input type="file" id="itemsFile" accept=".csv" />
+        </div>
+        <div class="upload-card">
+          <h3>3. Products File</h3>
+          <input type="file" id="productsFile" accept=".csv" />
+        </div>
+      </div>
+
+      <button id="loadSampleBtn">Load sample repo CSVs</button>
+    </header>
+
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="label">Late Deliveries</div>
+        <div class="value" id="lateDeliveries">-</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Total Purchases</div>
+        <div class="value" id="totalPurchases">-</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Total Customers</div>
+        <div class="value" id="totalCustomers">-</div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Total Revenue</div>
+        <div class="value" id="totalRevenue">-</div>
+      </div>
+    </section>
+
+    <section class="filters">
+      <select id="metricType">
+        <option value="late_deliveries">Late Deliveries (Count)</option>
+        <option value="revenue">Revenue</option>
+        <option value="orders">Orders</option>
+      </select>
+
+      <select id="timeGranularity">
+        <option value="weekly">Weekly View</option>
+        <option value="monthly">Monthly View</option>
+      </select>
+
+      <select id="dateColumn">
+        <option value="order_purchase_timestamp">order_purchase_timestamp</option>
+        <option value="order_delivered_customer_date">order_delivered_customer_date</option>
+      </select>
+    </section>
+
+    <section class="charts-grid">
+      <div class="chart-card">
+        <h2>Trend Analysis</h2>
+        <canvas id="trendChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h2>Top Product Categories</h2>
+        <canvas id="categoryChart"></canvas>
+      </div>
+    </section>
+
+    <section class="heatmap-card">
+      <h2>Customer Ordering Heatmap</h2>
+      <div id="heatmap"></div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
