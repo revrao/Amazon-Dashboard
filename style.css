@@ -87,3 +87,27 @@ select, input, button {
   border-radius: 6px;
   background: #ecebff;
 }
+
+
+.kpi-card {
+  background: white;
+  border-radius: 20px;
+  padding: 22px 28px;
+  box-shadow: 0 6px 20px rgba(31, 42, 68, 0.06);
+  border: 1px solid #e9eef5;
+}
+
+.kpi-card .label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9aa9bf;
+  margin-bottom: 10px;
+}
+
+.kpi-card .value {
+  font-size: 34px;
+  font-weight: 800;
+  color: #1f2a44;
+}
